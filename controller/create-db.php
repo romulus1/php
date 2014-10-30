@@ -21,8 +21,8 @@ else{
     echo "database already exists."; //runs if database exists
 }
 
-$query = $connection->query("CREATE TABLE posts ("
-        . "id int(11) NOT NULL AUTO_INCREMENT,"
+$query = $connection->query("CREATE TABLE posts (" //creates table
+        . "id int(11) NOT NULL AUTO_INCREMENT," //creates ids
         . "title varchar(285) NOT NULL,"
         . "post text NOT NULL,"
         . "PRIMARY KEY (id))");

@@ -1,5 +1,5 @@
 <?php
-    $host = "localhost"; //creates variables
-    $username = "root";
+    $host = "localhost"; //uses name localhost to create the server
+    $username = "root"; //
     $password = "root";
     $database = "blog_db";
