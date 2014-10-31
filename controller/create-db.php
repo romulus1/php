@@ -5,7 +5,7 @@ require_once(__DIR__ . "/../model/database.php"); //opens database code in mdoel
 $connection = new mysqli($host, $username, $password); //uses mysqli to create the connection
 
 if($connection->connect_error) {
-    die("Error: " . $connection->connect_error); //kills code so nothing appears if there's no connection
+    die("<p>Error: " . $connection->connect_error . "</p>"); //kills code so nothing appears if there's no connection
 }
 
 $exists = $connection->select_db($database); //selects database
@@ -14,11 +14,11 @@ if(!$exists) {
    $query = $connection->query("CREATE DATABASE $database");
 
    if($query) {
-       echo "Successfully created databse: " . $database; //runs this code if the database is successful (if it exists)
+       echo "<p>Successfully created databse: " . $database . "</p>"; //runs this code if the database is successful (if it exists)
    }
 }
 else{
-    echo "database already exists."; //runs if database exists
+    echo "<p>database already exists.</p>"; //runs if database exists
 }
 
 $query = $connection->query("CREATE TABLE posts (" //creates table
@@ -26,5 +26,12 @@ $query = $connection->query("CREATE TABLE posts (" //creates table
         . "title varchar(285) NOT NULL,"
         . "post text NOT NULL,"
         . "PRIMARY KEY (id))");
+
+if($query) {
+    echo "successfully create table: posts";
+}
+else{
+    echo "<p>$connection->error</p>";
+}
 
 $connection->close(); //close connection with the server
